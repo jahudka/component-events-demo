@@ -1,0 +1,34 @@
+{block content}
+  <!-- ****** Cart Area Start ****** -->
+  <div class="cart_area clearfix">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          {control cartListing}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="coupon-code-area mt-70">
+            <div class="cart-page-heading">
+              <h5>Coupon code</h5>
+              <p>Enter your coupon code</p>
+            </div>
+            <form action="#">
+              <input type="search" name="search" placeholder="#569ab15" />
+              <button type="submit">Apply</button>
+            </form>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          {control shippingSelector}
+        </div>
+        <div class="col-12 col-lg-4">
+          {control cartTotal}
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ****** Cart Area End ****** -->
+{/block}

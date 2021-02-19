@@ -1,0 +1,6 @@
+/node_modules
+/vendor
+/var
+/etc/config.local.neon
+/public/css/nittro.min.*
+/public/js/nittro.min.*

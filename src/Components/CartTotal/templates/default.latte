@@ -1,0 +1,23 @@
+{templateType App\Components\CartTotal\CartTotalDefaultTemplate}
+<div class="cart-total-area mt-70">
+  <div class="cart-page-heading">
+    <h5>Cart total</h5>
+    <p>Final info</p>
+  </div>
+
+  <ul class="cart-total-chart">
+    <li>
+      <span>Subtotal</span>
+      <span n:snippet="items">{$items|price}</span>
+    </li>
+    <li>
+      <span>Shipping</span>
+      <span n:snippet="shipping">{$shipping|price}</span>
+    </li>
+    <li>
+      <span><strong>Total</strong></span>
+      <span n:snippet="total"><strong>{$items + $shipping |price}</strong></span>
+    </li>
+  </ul>
+  <a href="/" class="btn karl-checkout-btn">Proceed to checkout</a>
+</div>

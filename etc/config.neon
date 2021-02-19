@@ -1,0 +1,53 @@
+extensions:
+  nextras.dbal: Nextras\Dbal\Bridges\NetteDI\DbalExtension
+  nextras.orm: Nextras\Orm\Bridges\NetteDI\OrmExtension
+  - Contributte\Console\DI\ConsoleExtension(%consoleMode%)
+
+
+parameters:
+
+tracy:
+  showBar: false
+
+di:
+  export:
+    parameters: no
+    tags: no
+
+nextras.dbal:
+  driver: pgsql
+  host: 127.0.0.1
+  port: 5436
+  database: component_events_demo
+  username: component_events_demo
+  password:
+
+nextras.orm:
+  repositoryFinder: Nextras\Orm\Bridges\NetteDI\DIRepositoryFinder
+
+application:
+  errorPresenter: Error
+  mapping:
+    *: App\*Module\Presenters\*Presenter
+
+routing:
+  routes:
+    '<presenter>[/<action>]': 'Home:default'
+
+session:
+  expiration: 14 days
+
+services:
+  - App\Model\Repository\CartRepository(App\Model\Mapper\CartMapper(cache: @nextras.orm.cache))
+  - App\Model\Repository\CartItemRepository(App\Model\Mapper\CartItemMapper(cache: @nextras.orm.cache))
+  - App\Model\Repository\ProductRepository(App\Model\Mapper\ProductMapper(cache: @nextras.orm.cache))
+  - App\Model\MagicBox()
+
+  - App\Components\CartWidget\CartWidgetFactory()
+  - App\Components\CartListing\CartListingFactory()
+  - App\Components\CartTotal\CartTotalFactory()
+  - App\Components\ShippingSelector\ShippingSelectorFactory()
+
+  latte.latteFactory:
+    setup:
+      - addFilter('price', [App\Latte\Filters, formatPrice])

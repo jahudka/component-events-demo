@@ -1,0 +1,45 @@
+{templateType App\Components\CartListing\CartListingDefaultTemplate}
+<div class="cart-table clearfix">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      {foreach $items as $item}
+        <tr>
+          <td class="cart_product_img d-flex align-items-center">
+            <a href="#"><img src="/img/product-img/product-{$item->product->id}.jpg" alt="{$item->product->name}"></a>
+            <h6>{$item->product->name}</h6>
+          </td>
+          <td class="price"><span>{$item->product->unitPrice|price}</span></td>
+          <td class="qty">
+            <div class="quantity">
+              <a n:href="updateQuantity! $item->id, $item->quantity - 1" class="qty-minus"><i class="fa fa-minus" aria-hidden="true"></i></a>
+              <input type="number" class="qty-text" step="1" min="0" max="99" readonly value="{$item->quantity}" />
+              <a n:href="updateQuantity! $item->id, $item->quantity + 1" class="qty-plus"><i class="fa fa-plus" aria-hidden="true"></i></a>
+            </div>
+          </td>
+          <td class="total_price">
+            <span>
+              {$item->quantity * $item->product->unitPrice |price}
+            </span>
+          </td>
+        </tr>
+      {/foreach}
+    </tbody>
+  </table>
+</div>
+
+<div class="cart-footer d-flex mt-30">
+  <div class="back-to-shop w-50">
+    <a href="/">Continue shopping</a>
+  </div>
+  <div class="update-checkout w-50 text-right">
+    <a n:href="clear!">Clear cart</a>
+  </div>
+</div>

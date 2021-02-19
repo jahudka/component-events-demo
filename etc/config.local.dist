@@ -1,0 +1,6 @@
+nextras.dbal:
+  # host: 127.0.0.1
+  # port: 5436
+  # database: component_events_demo
+  # username: component_events_demo
+  password:

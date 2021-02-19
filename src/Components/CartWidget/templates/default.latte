@@ -1,0 +1,28 @@
+{templateType App\Components\CartWidget\CartWidgetDefaultTemplate}
+<div class="cart">
+  <a href="#" id="header-cart-btn" target="_blank">
+    <span class="cart_quantity">{$cart ? count($cart->items) : 0}</span>
+    <i class="ti-bag"></i>
+    Your Bag
+    <span>{$total|price}</span>
+  </a>
+  <ul class="cart-list">
+    {if $cart}
+      {foreach $cart->items as $item}
+        <li>
+          <a href="#" class="image"><img src="/img/product-img/product-{$item->product->id}-sm.jpg" class="cart-thumb" alt="{$item->product->name}"></a>
+          <div class="cart-item-desc">
+            <h6><a href="#">{$item->product->name}</a></h6>
+            <p>{$item->quantity}x - <span class="price">{$item->product->unitPrice|price}</span></p>
+          </div>
+          <span class="dropdown-product-remove"><i class="icon-cross"></i></span>
+        </li>
+      {/foreach}
+    {/if}
+    <li class="total">
+      <span class="pull-right">Total: {$total|price}</span>
+      <a href="{plink Cart:}" class="btn btn-sm btn-cart">Cart</a>
+      <a href="/" class="btn btn-sm btn-checkout">Checkout</a>
+    </li>
+  </ul>
+</div>

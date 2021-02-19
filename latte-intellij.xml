@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE latte PUBLIC "-//LATTE//Latte plugin XML V0.0.1//EN" ".idea/intellij-latte/xmlSources/Latte.dtd">
+<latte version="1" vendor="jahudka/component-events-demo">
+  <tags>
+    <tag name="snippet.id" type="UNPAIRED">
+      <arguments>
+        <argument types="PHP_EXPRESSION" required="true" />
+      </arguments>
+    </tag>
+    <tag name="form.id" type="UNPAIRED">
+      <arguments>
+        <argument types="PHP_EXPRESSION" required="true" />
+      </arguments>
+    </tag>
+    <tag name="dynamic" type="ATTR_ONLY">
+      <arguments>
+        <argument types="PHP_EXPRESSION" required="true" />
+      </arguments>
+    </tag>
+  </tags>
+  <filters>
+    <filter name="price" />
+  </filters>
+</latte>
