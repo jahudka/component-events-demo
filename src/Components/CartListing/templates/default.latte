@@ -9,23 +9,23 @@
         <th>Total</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody n:snippet="list" n:dynamic="item-\d+">
       {foreach $items as $item}
-        <tr>
+        <tr n:snippet="item-$item->id">
           <td class="cart_product_img d-flex align-items-center">
             <a href="#"><img src="/img/product-img/product-{$item->product->id}.jpg" alt="{$item->product->name}"></a>
             <h6>{$item->product->name}</h6>
           </td>
           <td class="price"><span>{$item->product->unitPrice|price}</span></td>
           <td class="qty">
-            <div class="quantity">
-              <a n:href="updateQuantity! $item->id, $item->quantity - 1" class="qty-minus"><i class="fa fa-minus" aria-hidden="true"></i></a>
+            <div class="quantity item-qty-transition nittro-transition-dim" n:snippet="item-$item->id-quantity">
+              <a n:href="updateQuantity! $item->id, $item->quantity - 1" data-ajax="true" data-history="false" class="qty-minus"><i class="fa fa-minus" aria-hidden="true"></i></a>
               <input type="number" class="qty-text" step="1" min="0" max="99" readonly value="{$item->quantity}" />
-              <a n:href="updateQuantity! $item->id, $item->quantity + 1" class="qty-plus"><i class="fa fa-plus" aria-hidden="true"></i></a>
+              <a n:href="updateQuantity! $item->id, $item->quantity + 1" data-ajax="true" data-history="false" class="qty-plus"><i class="fa fa-plus" aria-hidden="true"></i></a>
             </div>
           </td>
           <td class="total_price">
-            <span>
+            <span class="item-qty-transition nittro-transition-dim" n:snippet="item-$item->id-price">
               {$item->quantity * $item->product->unitPrice |price}
             </span>
           </td>
@@ -40,6 +40,6 @@
     <a href="/">Continue shopping</a>
   </div>
   <div class="update-checkout w-50 text-right">
-    <a n:href="clear!">Clear cart</a>
+    <a n:href="clear!" data-ajax="true" data-history="false">Clear cart</a>
   </div>
 </div>

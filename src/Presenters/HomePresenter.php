@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Presenters;
 
 use App\Model\MagicBox;
-use Nette\Application\UI\Presenter;
+use Nittro\Bridges\NittroUI\Presenter;
 
 
 class HomePresenter extends Presenter

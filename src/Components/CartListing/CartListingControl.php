@@ -6,6 +6,7 @@ namespace App\Components\CartListing;
 
 use App\Model\MagicBox;
 use Nette\Application\UI\Control;
+use Nittro\Bridges\NittroUI\ComponentUtils;
 
 
 /**
@@ -13,6 +14,8 @@ use Nette\Application\UI\Control;
  */
 class CartListingControl extends Control
 {
+  use ComponentUtils;
+
   private array|null $items = null;
 
   public function __construct(
@@ -28,13 +31,16 @@ class CartListingControl extends Control
   public function handleClear() : void
   {
     $this->magicBox->clearCart();
-    $this->redirect('this');
+    $this->postGet('this');
+    $this->redrawControl('list');
+    $this->items = [];
   }
 
   public function handleUpdateQuantity(int $itemId, int $quantity) : void
   {
-    $this->magicBox->updateCartQuantities([$itemId => $quantity]);
-    $this->redirect('this');
+    $this->items = $this->magicBox->updateCartQuantities([$itemId => $quantity]);
+    $this->postGet('this');
+    $this->redrawControl('list');
   }
 
   private function getItems() : array

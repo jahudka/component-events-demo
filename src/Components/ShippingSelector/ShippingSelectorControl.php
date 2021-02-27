@@ -7,12 +7,15 @@ namespace App\Components\ShippingSelector;
 
 use App\Model\MagicBox;
 use Nette\Application\UI\Control;
+use Nittro\Bridges\NittroUI\ComponentUtils;
 
 /**
  * @property-read ShippingSelectorDefaultTemplate $template
  */
 class ShippingSelectorControl extends Control
 {
+  use ComponentUtils;
+
   public function __construct(
     private MagicBox $magicBox
   ) {}
@@ -35,6 +38,7 @@ class ShippingSelectorControl extends Control
   public function saveShippingMethod(ShippingSelectorForm $form, array $values) : void
   {
     $this->magicBox->saveShippingMethod($values['shippingMethod']);
-    $this->redirect('this');
+    $this->postGet('this');
+    $this->redrawControl('dummy');
   }
 }

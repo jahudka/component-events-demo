@@ -1,5 +1,5 @@
 {templateType App\Components\ShippingSelector\ShippingSelectorDefaultTemplate}
-<form n:name="form" class="shipping-method-area mt-70">
+<form n:name="form" class="shipping-method-area mt-70" data-ajax="true" data-reset="false" data-history="false" data-transition=".cart-shipping-transition">
   <div class="cart-page-heading">
     <h5>Shipping method</h5>
     <p>Select the one you want</p>
@@ -18,14 +18,14 @@
   <button n:name="save" class="d-none">Save shipping method</button>
 
   <script type="application/javascript">
-    (function() {
-      const form = document.getElementById('frm-shippingSelector-form');
+    _stack.push(function(di) {
+      const form = document.getElementById({form.id});
 
       form.addEventListener('change', handleChange);
 
       function handleChange() {
-        form.submit();
+        di.getService('formLocator').getForm(form).submit();
       }
-    })();
+    });
   </script>
 </form>

@@ -12,7 +12,7 @@ use App\Components\CartWidget\CartWidgetControl;
 use App\Components\CartWidget\CartWidgetFactory;
 use App\Components\ShippingSelector\ShippingSelectorControl;
 use App\Components\ShippingSelector\ShippingSelectorFactory;
-use Nette\Application\UI\Presenter;
+use Nittro\Bridges\NittroUI\Presenter;
 
 
 class CartPresenter extends Presenter

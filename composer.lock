@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d4b48caac13290624ede95894c8f5699",
+    "content-hash": "0a5a3baf419ec9ed9f4befc0572739af",
     "packages": [
         {
             "name": "contributte/console",
@@ -1427,6 +1427,52 @@
                 }
             ],
             "time": "2020-09-13T20:56:36+00:00"
+        },
+        {
+            "name": "nittro/nette-bridges",
+            "version": "v2.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nittro/nette-bridges.git",
+                "reference": "17b54acc3ad8cd711436043521209cf5d609582a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nittro/nette-bridges/zipball/17b54acc3ad8cd711436043521209cf5d609582a",
+                "reference": "17b54acc3ad8cd711436043521209cf5d609582a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "latte/latte": "^3.0",
+                "nette/application": "^3.0",
+                "nette/di": "^3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dan Kadera",
+                    "email": "me@subsonic.cz"
+                }
+            ],
+            "description": "Nittro PHP bridges",
+            "homepage": "https://www.nittro.org/",
+            "support": {
+                "issues": "https://github.com/nittro/nette-bridges/issues",
+                "source": "https://github.com/nittro/nette-bridges/tree/v2.1.4"
+            },
+            "time": "2021-01-10T18:18:30+00:00"
         },
         {
             "name": "psr/container",

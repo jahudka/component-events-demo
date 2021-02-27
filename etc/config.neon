@@ -2,6 +2,7 @@ extensions:
   nextras.dbal: Nextras\Dbal\Bridges\NetteDI\DbalExtension
   nextras.orm: Nextras\Orm\Bridges\NetteDI\OrmExtension
   - Contributte\Console\DI\ConsoleExtension(%consoleMode%)
+  - Nittro\Bridges\NittroDI\NittroExtension
 
 
 parameters:
