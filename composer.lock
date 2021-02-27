@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0a5a3baf419ec9ed9f4befc0572739af",
+    "content-hash": "6d00a192667252f7eb6df0dadf994cfa",
     "packages": [
         {
             "name": "contributte/console",
@@ -139,6 +139,126 @@
                 "source": "https://github.com/contributte/di/tree/v0.5.1"
             },
             "time": "2020-12-26T17:02:42+00:00"
+        },
+        {
+            "name": "contributte/nextras-orm-events",
+            "version": "v0.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/contributte/nextras-orm-events.git",
+                "reference": "102c89c883e45fb31d768eb0a77edea62c2c551f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/contributte/nextras-orm-events/zipball/102c89c883e45fb31d768eb0a77edea62c2c551f",
+                "reference": "102c89c883e45fb31d768eb0a77edea62c2c551f",
+                "shasum": ""
+            },
+            "require": {
+                "nette/di": "~3.0.0",
+                "nette/reflection": "~2.4.2",
+                "nextras/orm": "^3.1.0",
+                "php": ">=7.2"
+            },
+            "conflict": {
+                "nette/di": "<=3.0.0-RC"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.3.3",
+                "nette/caching": "~3.0.0",
+                "ninjify/nunjuck": "^0.4",
+                "ninjify/qa": "^0.12",
+                "phpstan/phpstan": "^0.12",
+                "phpstan/phpstan-deprecation-rules": "^0.12",
+                "phpstan/phpstan-nette": "^0.12",
+                "phpstan/phpstan-strict-rules": "^0.12"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.8.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Contributte\\Nextras\\Orm\\Events\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Milan Felix Šulc",
+                    "homepage": "https://f3l1x.io"
+                }
+            ],
+            "description": "Doctrine-like events for Nextras ORM entity lifecycle",
+            "homepage": "https://github.com/contributte/nextras-orm-events",
+            "keywords": [
+                "doctrine",
+                "events",
+                "lifecycle",
+                "nextras",
+                "orm"
+            ],
+            "support": {
+                "issues": "https://github.com/contributte/nextras-orm-events/issues",
+                "source": "https://github.com/contributte/nextras-orm-events/tree/v0.7.0"
+            },
+            "time": "2021-01-20T10:00:56+00:00"
+        },
+        {
+            "name": "jahudka/component-events",
+            "version": "v2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jahudka/component-events.git",
+                "reference": "cbe9564680dc9de1de955f9cc7432cfac4232e17"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jahudka/component-events/zipball/cbe9564680dc9de1de955f9cc7432cfac4232e17",
+                "reference": "cbe9564680dc9de1de955f9cc7432cfac4232e17",
+                "shasum": ""
+            },
+            "require": {
+                "nette/application": "^2.4.16 || ^3.0.6",
+                "nette/component-model": "^2.4 || ^3.0",
+                "nette/di": "^2.4 || ^v3.0",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "contributte/nextras-orm-events": "^0.7.0",
+                "doctrine/event-manager": "^1.1",
+                "nextras/orm": "^3.1",
+                "phpunit/phpunit": "^9.5",
+                "symfony/event-dispatcher": "^4.4 || ^5.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jahudka\\ComponentEvents\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dan Kadera",
+                    "email": "me@subsonic.cz"
+                }
+            ],
+            "description": "Relay events to lazily created components",
+            "homepage": "https://github.com/jahudka/component-events",
+            "support": {
+                "issues": "https://github.com/jahudka/component-events/issues",
+                "source": "https://github.com/jahudka/component-events/tree/v2.0.2"
+            },
+            "time": "2021-01-29T22:27:53+00:00"
         },
         {
             "name": "latte/latte",
@@ -954,6 +1074,75 @@
                 "source": "https://github.com/nette/php-generator/tree/v3.5.2"
             },
             "time": "2021-01-19T13:02:23+00:00"
+        },
+        {
+            "name": "nette/reflection",
+            "version": "v2.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/reflection.git",
+                "reference": "b12327e98ead74e87a1315e0d48182a702adf901"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/reflection/zipball/b12327e98ead74e87a1315e0d48182a702adf901",
+                "reference": "b12327e98ead74e87a1315e0d48182a702adf901",
+                "shasum": ""
+            },
+            "require": {
+                "ext-tokenizer": "*",
+                "nette/caching": "^2.2 || ^3.0",
+                "nette/utils": "^2.4 || ^3.0",
+                "php": ">=5.6.0"
+            },
+            "conflict": {
+                "nette/nette": "<2.2"
+            },
+            "require-dev": {
+                "nette/di": "^2.4 || ^3.0",
+                "nette/tester": "^2.0",
+                "tracy/tracy": "^2.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.4-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "Nette Reflection: docblock annotations parser and common reflection classes",
+            "homepage": "https://nette.org",
+            "keywords": [
+                "annotation",
+                "nette",
+                "reflection"
+            ],
+            "support": {
+                "issues": "https://github.com/nette/reflection/issues",
+                "source": "https://github.com/nette/reflection/tree/master"
+            },
+            "abandoned": true,
+            "time": "2017-07-11T19:28:57+00:00"
         },
         {
             "name": "nette/robot-loader",

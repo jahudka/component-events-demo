@@ -19,9 +19,9 @@
           <td class="price"><span>{$item->product->unitPrice|price}</span></td>
           <td class="qty">
             <div class="quantity item-qty-transition nittro-transition-dim" n:snippet="item-$item->id-quantity">
-              <a n:href="updateQuantity! $item->id, $item->quantity - 1" data-ajax="true" data-history="false" class="qty-minus"><i class="fa fa-minus" aria-hidden="true"></i></a>
+              <a n:href="updateQuantity! $item->id, $item->quantity - 1"{if $item->quantity < 2} data-dynamic-remove="#{snippet.id item-$item->id}"{/if} data-ajax="true" data-history="false" data-transition=".item-qty-transition, .cart-item-transition" class="qty-minus"><i class="fa fa-minus" aria-hidden="true"></i></a>
               <input type="number" class="qty-text" step="1" min="0" max="99" readonly value="{$item->quantity}" />
-              <a n:href="updateQuantity! $item->id, $item->quantity + 1" data-ajax="true" data-history="false" class="qty-plus"><i class="fa fa-plus" aria-hidden="true"></i></a>
+              <a n:href="updateQuantity! $item->id, $item->quantity + 1" data-ajax="true" data-history="false" data-transition=".item-qty-transition, .cart-item-transition" class="qty-plus"><i class="fa fa-plus" aria-hidden="true"></i></a>
             </div>
           </td>
           <td class="total_price">

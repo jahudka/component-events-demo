@@ -1,10 +1,9 @@
 (function() {
   const map = {
-    1: '#snippet-cartListing-list > tr:first-child .total_price span',
-    2: '.cart-container .cart',
-    3: '.cart-container .cart .cart-list',
-    4: '#snippet-cartTotal-items, #snippet-cartTotal-total',
-    5: '#snippet-cartTotal-shipping, #snippet-cartTotal-total',
+    1: '.cart-container .cart, .cart-container .cart .cart-list',
+    2: '#snippet-cartTotal-items, #snippet-cartTotal-total',
+    3: '.shipping-method-area .custom-control:nth-child(3)',
+    4: '#snippet-cartTotal-shipping, #snippet-cartTotal-total'
   };
 
   document.addEventListener('keydown', handleKey);

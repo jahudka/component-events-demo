@@ -7,14 +7,18 @@ namespace App\Components\CartTotal;
 use App\Model\Entity\Cart;
 use App\Model\Entity\CartItem;
 use App\Model\MagicBox;
+use Contributte\Nextras\Orm\Events\Listeners\AfterRemoveListener;
+use Contributte\Nextras\Orm\Events\Listeners\AfterUpdateListener;
 use Nette\Application\UI\Control;
 use Nextras\Orm\Entity\IEntity;
 
 
 /**
+ * @AfterUpdate(Cart, CartItem)
+ * @AfterRemove(CartItem)
  * @property-read CartTotalDefaultTemplate $template
  */
-class CartTotalControl extends Control
+class CartTotalControl extends Control implements AfterUpdateListener, AfterRemoveListener
 {
   public function __construct(
     private MagicBox $magicBox

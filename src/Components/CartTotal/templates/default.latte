@@ -8,15 +8,15 @@
   <ul class="cart-total-chart">
     <li>
       <span>Subtotal</span>
-      <span n:snippet="items">{$items|price}</span>
+      <span n:snippet="items" class="cart-item-transition nittro-transition-dim">{$items|price}</span>
     </li>
     <li>
       <span>Shipping</span>
-      <span n:snippet="shipping">{$shipping|price}</span>
+      <span n:snippet="shipping" class="cart-shipping-transition nittro-transition-dim">{$shipping|price}</span>
     </li>
     <li>
       <span><strong>Total</strong></span>
-      <span n:snippet="total"><strong>{$items + $shipping |price}</strong></span>
+      <span n:snippet="total" class="cart-item-transition cart-shipping-transition nittro-transition-dim"><strong>{$items + $shipping |price}</strong></span>
     </li>
   </ul>
   <a href="/" class="btn karl-checkout-btn">Proceed to checkout</a>

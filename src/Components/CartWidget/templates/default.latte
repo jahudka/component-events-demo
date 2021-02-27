@@ -1,12 +1,12 @@
 {templateType App\Components\CartWidget\CartWidgetDefaultTemplate}
 <div class="cart">
   <a href="#" id="header-cart-btn" target="_blank">
-    <span class="cart_quantity">{$cart ? count($cart->items) : 0}</span>
+    <span n:snippet="badge" class="cart_quantity cart-item-transition nittro-transition-dim position-absolute">{$cart ? count($cart->items) : 0}</span>
     <i class="ti-bag"></i>
     Your Bag
-    <span>{$total|price}</span>
+    <span n:snippet="total" class="cart-item-transition nittro-transition-dim">{$total|price}</span>
   </a>
-  <ul class="cart-list">
+  <ul n:snippet="items" class="cart-list">
     {if $cart}
       {foreach $cart->items as $item}
         <li>

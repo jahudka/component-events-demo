@@ -5,14 +5,20 @@ declare(strict_types=1);
 namespace App\Components\CartListing;
 
 use App\Model\MagicBox;
+use App\Model\Entity\CartItem;
+use Contributte\Nextras\Orm\Events\Listeners\AfterRemoveListener;
+use Contributte\Nextras\Orm\Events\Listeners\AfterUpdateListener;
 use Nette\Application\UI\Control;
+use Nextras\Orm\Entity\IEntity;
 use Nittro\Bridges\NittroUI\ComponentUtils;
 
 
 /**
+ * @AfterUpdate(CartItem)
+ * @AfterRemove(CartItem)
  * @property-read CartListingDefaultTemplate $template
  */
-class CartListingControl extends Control
+class CartListingControl extends Control implements AfterUpdateListener, AfterRemoveListener
 {
   use ComponentUtils;
 
@@ -38,9 +44,24 @@ class CartListingControl extends Control
 
   public function handleUpdateQuantity(int $itemId, int $quantity) : void
   {
-    $this->items = $this->magicBox->updateCartQuantities([$itemId => $quantity]);
+    $this->magicBox->updateCartQuantities([$itemId => $quantity]);
     $this->postGet('this');
-    $this->redrawControl('list');
+    $this->redrawControl('dummy');
+  }
+
+  public function onAfterUpdate(IEntity $entity) : void
+  {
+    if ($entity instanceof CartItem) {
+      $this->redrawControl('list');
+      $this->items[] = $entity;
+    }
+  }
+
+  public function onAfterRemove(IEntity $entity) : void
+  {
+    if ($entity instanceof CartItem) {
+      $this->redrawControl('dummy');
+    }
   }
 
   private function getItems() : array

@@ -3,6 +3,8 @@ extensions:
   nextras.orm: Nextras\Orm\Bridges\NetteDI\OrmExtension
   - Contributte\Console\DI\ConsoleExtension(%consoleMode%)
   - Nittro\Bridges\NittroDI\NittroExtension
+  - Contributte\Nextras\Orm\Events\DI\NextrasOrmEventsExtension
+  - Jahudka\ComponentEvents\ComponentEventsExtension
 
 
 parameters:

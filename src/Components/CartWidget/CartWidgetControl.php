@@ -6,14 +6,18 @@ namespace App\Components\CartWidget;
 
 use App\Model\Entity\CartItem;
 use App\Model\MagicBox;
+use Contributte\Nextras\Orm\Events\Listeners\AfterRemoveListener;
+use Contributte\Nextras\Orm\Events\Listeners\AfterUpdateListener;
 use Nette\Application\UI\Control;
 use Nextras\Orm\Entity\IEntity;
 
 
 /**
+ * @AfterUpdate(CartItem)
+ * @AfterRemove(CartItem)
  * @property-read CartWidgetDefaultTemplate $template
  */
-class CartWidgetControl extends Control
+class CartWidgetControl extends Control implements AfterUpdateListener, AfterRemoveListener
 {
   public function __construct(
     private MagicBox $magicBox
@@ -41,6 +45,7 @@ class CartWidgetControl extends Control
     if ($entity instanceof CartItem) {
       $this->redrawControl('items');
       $this->redrawControl('total');
+      $this->redrawControl('badge');
     }
   }
 }
